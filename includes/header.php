@@ -8,7 +8,7 @@
   <title>Site du Chef</title>
 </head>
 <body>
-  <nav class="flex justify-around items-center bg-black text-white h-14">
+  <nav class="flex justify-around items-center bg-black  text-white h-14">
     <div>
         <img src="" alt="logo">
     </div>
@@ -24,7 +24,7 @@
           <li class="p-2"><a href="menu.php">Menus</a></li>
           <li class="p-2"><a href="login.php">Login</a></li>
           <li class="p-2"><a href="contact.php">Contact</a></li>
-          <li class="p-2"><a href="about.php">About Us</a></li>
+          <li class="p-2"><a href="login.php">About Us</a></li>
         </ul>
     </div>
     
