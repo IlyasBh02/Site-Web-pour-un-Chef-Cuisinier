@@ -45,8 +45,11 @@ VALUES ('Dupont', 'Jean', 'jean.dupont@example.com', '0123456789', '123 Rue Exem
 INSERT INTO menu (nom) VALUES ('Menu Gourmand'), ('Menu Végétarien');
 
 INSERT INTO plat (nom, ingridiant, menuId, image)
-VALUES ('Steak Frites', 'Steak, pommes de terre', 1, 'steak_frites.jpg'),
-       ('Salade de Quinoa', 'Quinoa, légumes frais', 2, 'salade_quinoa.jpg');
+VALUES  ('Steak Frites', 'Steak, pommes de terre', 1, 'steak_frites.jpg'),
+        ('Salade de Quinoa', 'Quinoa, légumes frais', 2, 'salade_quinoa.jpg');
+        ('Salade César', 'Salade romaine, poulet grillé, sauce César', 1, 'salade_cesar.jpg'),
+        ('Bruschetta', 'Pain grillé, tomates fraîches, basilic', 2, 'bruschetta.jpg'),
+        ('Lasagne Végétarienne', 'Lasagne aux légumes de saison', 2, 'lasagne_vegetarienne.jpg');
 
 INSERT INTO reservation (clientId, menuId, datereservation, heur, nombrePersone, status)
 VALUES (1, 1, '2024-12-20', '19:00', 4, 'en attente'),
