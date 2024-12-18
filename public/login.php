@@ -11,7 +11,7 @@ require('../connection.php');
 <div class="w-screen">
         <div class="flex justify-center items-center opacity-90 my-4 p-2">
                 <!--================ start form =================-->
-        <form action="login-handler.php" method="post" class="bg-gray-500 w-[50%] p-6 rounded-3xl shadow-lg space-y-2">
+        <form action="login.php" method="post" class="bg-gray-500 w-[50%] p-6 rounded-3xl shadow-lg space-y-2">
             <div class="transition-all duration-300 ease-in-out hover:scale-105">
                 <label for="nom">Nom :</label>
                 <input type="text" name="nom" id="nom" placeholder="Nom" class="px-2 py-1 w-full border-solid rounded-lg">
@@ -55,6 +55,7 @@ require('../connection.php');
       $query = "INSERT INTO `client`(`nom`, `prenom`,`email`,`tele`,`adress`,`password`)  
               VALUE ('$nom', '$prenom','$email','$tele','$adress','$password')";
       $res = $db->query($query);
+      // echo $res;
       header("Refresh: 0");
   }
 
