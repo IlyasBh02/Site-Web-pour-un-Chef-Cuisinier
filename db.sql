@@ -54,3 +54,15 @@ VALUES  ('Steak Frites', 'Steak, pommes de terre', 1, 'steak_frites.jpg'),
 INSERT INTO reservation (clientId, menuId, datereservation, heur, nombrePersone, status)
 VALUES (1, 1, '2024-12-20', '19:00', 4, 'en attente'),
        (2, 2, '2024-12-21', '20:00', 2, 'acceptée');
+
+
+
+
+CREATE TABLE messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(25) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    sujet VARCHAR(150) NOT NULL,
+    message TEXT NOT NULL,
+    date_envoi DATETIME DEFAULT CURRENT_TIMESTAMP
+);

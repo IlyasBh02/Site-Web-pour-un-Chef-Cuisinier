@@ -62,41 +62,74 @@ if ($result->num_rows > 0) {
 <section class="py-16">
     <div class="container mx-auto px-6 text-center">
         <h2 class="text-3xl font-bold text-gray-800 mb-12">Futur Meal</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Menu Card 1 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
-                <img src="../img/enrees1.png" alt="Entrées" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Entrées</h3>
-                    <p class="text-gray-600">Une variété de délicieuses entrées pour commencer votre repas.</p>
+            <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl hover:translate-y-2 duration-300 ease-in-out">
+                <img src="../img/enrees1.png" alt="Entrées" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Entrées</h3>
+                    <p class="text-gray-600 text-sm">Une variété de délicieuses entrées pour commencer votre repas.</p>
                 </div>
             </div>
             <!-- Menu Card 2 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
-                <img src="../img/plats-prn1.png" alt="Plats Principaux" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Plats Principaux</h3>
-                    <p class="text-gray-600">Des plats gourmands pour satisfaire toutes vos envies.</p>
+            <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl hover:translate-y-2 duration-300 ease-in-out">
+                <img src="../img/plats-prn1.png" alt="Plats Principaux" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Plats Principaux</h3>
+                    <p class="text-gray-600 text-sm">Des plats gourmands pour satisfaire toutes vos envies.</p>
                 </div>
             </div>
             <!-- Menu Card 3 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
-                <img src="../img/boisson1.png" alt="Boissons" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Boissons</h3>
-                    <p class="text-gray-600">Des boissons rafraîchissantes pour accompagner votre repas.</p>
+            <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl hover:translate-y-2 duration-300 ease-in-out">
+                <img src="../img/boisson1.png" alt="Boissons" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Boissons</h3>
+                    <p class="text-gray-600 text-sm">Des boissons rafraîchissantes pour accompagner votre repas.</p>
                 </div>
             </div>
             <!-- Menu Card 4 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
-                <img src="../img/desserts1.png" alt="Desserts" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Desserts</h3>
-                    <p class="text-gray-600">Terminez votre repas en beauté avec nos desserts sucrés.</p>
+            <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl hover:translate-y-2 duration-300 ease-in-out">
+                <img src="../img/desserts1.png" alt="Desserts" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Desserts</h3>
+                    <p class="text-gray-600 text-sm">Terminez votre repas en beauté avec nos desserts sucrés.</p>
+                </div>
+            </div>
+            <!-- Menu Card 5 - Entrées Végétariennes -->
+            <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl hover:translate-y-2 duration-300 ease-in-out">
+                <img src="../img/entrees_vegetariennes.png" alt="Entrées Végétariennes" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Entrées Végétariennes</h3>
+                    <p class="text-gray-600 text-sm">Découvrez des entrées savoureuses et saines, 100% végétariennes.</p>
+                </div>
+            </div>
+            <!-- Menu Card 6 - Plats Végétariens -->
+            <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl hover:translate-y-2 duration-300 ease-in-out">
+                <img src="../img/plats_vegetariens.png" alt="Plats Végétariens" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Plats Végétariens</h3>
+                    <p class="text-gray-600 text-sm">Des plats riches en saveurs, idéals pour un repas végétarien équilibré.</p>
+                </div>
+            </div>
+            <!-- Menu Card 7 - Snacks -->
+            <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl hover:translate-y-2 duration-300 ease-in-out">
+                <img src="../img/snacks.png" alt="Snacks" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Snacks</h3>
+                    <p class="text-gray-600 text-sm">De petites bouchées savoureuses à déguster à tout moment de la journée.</p>
+                </div>
+            </div>
+            <!-- Menu Card 8 - Sodas -->
+            <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-xl hover:translate-y-2 duration-300 ease-in-out">
+                <img src="../img/sodas.png" alt="Sodas" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Sodas</h3>
+                    <p class="text-gray-600 text-sm">Des boissons pétillantes pour un moment rafraîchissant.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <?php include '../includes/footer.php'; ?>
