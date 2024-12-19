@@ -29,7 +29,7 @@
             <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                 <img src="../img/enrees1.png" alt="Entrées" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Entrées</h3>
+                    <h3 class="text-xl font-bold text-gray-800">Entrées</h3>
                     <p class="text-gray-600">Une variété de délicieuses entrées pour commencer votre repas.</p>
                 </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                 <img src="../img/plats-prn1.png" alt="Plats Principaux" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Plats Principaux</h3>
+                    <h3 class="text-xl font-bold text-gray-800">Plats Principaux</h3>
                     <p class="text-gray-600">Des plats gourmands pour satisfaire toutes vos envies.</p>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                 <img src="../img/boisson1.png" alt="Boissons" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Boissons</h3>
+                    <h3 class="text-xl font-bold text-gray-800">Boissons</h3>
                     <p class="text-gray-600">Des boissons rafraîchissantes pour accompagner votre repas.</p>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                 <img src="../img/desserts1.png" alt="Desserts" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Desserts</h3>
+                    <h3 class="text-xl font-bold text-gray-800">Desserts</h3>
                     <p class="text-gray-600">Terminez votre repas en beauté avec nos desserts sucrés.</p>
                 </div>
             </div>
@@ -71,7 +71,7 @@
             <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                 <img src="../img/Ambiance.jpg" alt="Restaurant Image 1" class="w-full h-60 object-cover">
                 <div class="p-4 text-center">
-                    <h3 class="text-xl font-semibold text-gray-800">Ambiance Moderne</h3>
+                    <h3 class="text-xl font-bold text-gray-800">Ambiance Moderne</h3>
                     <p class="text-gray-600">Un cadre élégant et moderne pour chaque repas.</p>
                 </div>
             </div>
@@ -79,7 +79,7 @@
             <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                 <img src="../img/sale.jpg" alt="Restaurant Image 2" class="w-full h-60 object-cover">
                 <div class="p-4 text-center">
-                    <h3 class="text-xl font-semibold text-gray-800">Salle Principal</h3>
+                    <h3 class="text-xl font-bold text-gray-800">Salle Principal</h3>
                     <p class="text-gray-600">Une salle principale spacieuse pour des repas inoubliables.</p>
                 </div>
             </div>
@@ -87,7 +87,7 @@
             <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
                 <img src="../img/Terrasse.jpg" alt="Restaurant Image 3" class="w-full h-60 object-cover">
                 <div class="p-4 text-center">
-                    <h3 class="text-xl font-semibold text-gray-800">Espace Terrasse</h3>
+                    <h3 class="text-xl font-bold text-gray-800">Espace Terrasse</h3>
                     <p class="text-gray-600">Profitez de notre terrasse extérieure en toute saison.</p>
                 </div>
             </div>
@@ -96,7 +96,7 @@
 </section>
 
 
-<section id="reviews-contact" class="py-16 bg-red-100">
+<section id="reviews-contact" class="py-16 m-2 rounded-lg bg-red-100">
     <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
             <h2 class="text-3xl font-bold text-gray-800 mb-8">Ce que disent nos clients</h2>
@@ -104,21 +104,21 @@
                 <div class="bg-white shadow-lg rounded-lg p-6">
                     <p class="text-gray-600 italic">"La nourriture était délicieuse et le service impeccable ! Un incontournable."</p>
                     <div class="mt-4">
-                        <h4 class="text-lg font-semibold text-gray-800">Marie Dupont</h4>
+                        <h4 class="text-lg font-bold text-gray-800">Marie Dupont</h4>
                         <p class="text-sm text-gray-500">⭐⭐⭐⭐⭐</p>
                     </div>
                 </div>
                 <div class="bg-white shadow-lg rounded-lg p-6">
                     <p class="text-gray-600 italic">"Une expérience culinaire unique et mémorable. Nous reviendrons !"</p>
                     <div class="mt-4">
-                        <h4 class="text-lg font-semibold text-gray-800">Jean Martin</h4>
+                        <h4 class="text-lg font-bold text-gray-800">Jean Martin</h4>
                         <p class="text-sm text-gray-500">⭐⭐⭐⭐⭐</p>
                     </div>
                 </div>
                 <div class="bg-white shadow-lg rounded-lg p-6">
                     <p class="text-gray-600 italic">"Les desserts étaient incroyables, et l'atmosphère très agréable."</p>
                     <div class="mt-4">
-                        <h4 class="text-lg font-semibold text-gray-800">Sophie Leblanc</h4>
+                        <h4 class="text-lg font-bold text-gray-800">Sophie Leblanc</h4>
                         <p class="text-sm text-gray-500">⭐⭐⭐⭐⭐</p>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
 
         <!-- Mission Section -->
         <div class="mb-16">
-            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Notre Mission</h3>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Notre Mission</h3>
             <p class="text-gray-600 text-lg leading-relaxed">
                 Offrir une cuisine exceptionnelle qui allie tradition et innovation, tout en créant une atmosphère chaleureuse 
                 et accueillante. Nous nous efforçons de surprendre nos clients avec des saveurs uniques et des ingrédients de 
@@ -191,25 +191,25 @@
         </div>
 
         <!-- Our Team Section -->
-        <div class="mb-16">
-            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Notre Équipe</h3>
+        <div class="mb-16 p-2 rounded-lg bg-gray-300">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">Notre Équipe</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Team Member 1 -->
                 <div class="text-center">
                     <img src="../img/chefs-01.jpg" alt="Chef Alain Ducasse" class="w-44 h-44 mx-auto rounded-full mb-4">
-                    <h4 class="text-xl font-semibold text-gray-800">Chef Alain Ducasse</h4>
+                    <h4 class="text-xl font-bold text-gray-800">Chef Alain Ducasse</h4>
                     <p class="text-gray-600">Spécialiste de la cuisine française et fondateur de Foodie Heaven.</p>
                 </div>
                 <!-- Team Member 2 -->
                 <div class="text-center">
                     <img src="../img/chefs-02.jpg" alt="Chef Julia Child" class="w-44 h-44 mx-auto rounded-full mb-4">
-                    <h4 class="text-xl font-semibold text-gray-800">Chef Julia Child</h4>
+                    <h4 class="text-xl font-bold text-gray-800">Chef Julia Child</h4>
                     <p class="text-gray-600">Experte en saveurs internationales et pâtisseries élégantes.</p>
                 </div>
                 <!-- Team Member 3 -->
                 <div class="text-center">
                     <img src="../img/chefs-03.jpg" alt="Chef Massimo Bottura" class="w-44 h-44 mx-auto rounded-full mb-4">
-                    <h4 class="text-xl font-semibold text-gray-800">Chef Massimo Bottura</h4>
+                    <h4 class="text-xl font-bold text-gray-800">Chef Massimo Bottura</h4>
                     <p class="text-gray-600">Maître de la cuisine italienne moderne avec une touche artistique.</p>
                 </div>
             </div>

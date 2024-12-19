@@ -6,7 +6,8 @@ CREATE TABLE client (
     tele VARCHAR(15) NOT NULL,
     adress TEXT NOT NULL,   
     password VARCHAR(255) NOT NULL,
-    role ENUM('client', 'chef') NOT NULL 
+    roleId INT,
+    FOREIGN KEY (roleId) REFERENCES role(id),
 );
 
 CREATE TABLE menu (
@@ -65,4 +66,9 @@ CREATE TABLE messages (
     sujet VARCHAR(150) NOT NULL,
     message TEXT NOT NULL,
     date_envoi DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE role(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(10)
 );

@@ -21,9 +21,9 @@
         <ul class="flex text-white text-lg p-4">
           <li class="p-2"><a href="index.php">Home</a></li>
           <li class="p-2"><a href="menu.php">Menus</a></li>
-          <li class="p-2"><a href="login.php">Login</a></li>
           <li class="p-2"><a href="index.php#reviews-contact">Contact</a></li>
           <li class="p-2"><a href="index.php#about-us">About Us</a></li>
+          <li class="p-2"><a href="login.php">Login</a></li>
         </ul>
     </div>
 </nav>
