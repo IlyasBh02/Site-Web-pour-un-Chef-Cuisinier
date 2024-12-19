@@ -47,25 +47,25 @@ if (isset($_POST['login'])) {
     }
 }
 if (isset($_POST['register'])) {
-    $nom = htmlspecialchars($_POST['nom']);
-    $prenom = htmlspecialchars($_POST['prenom']);
-    $email = htmlspecialchars($_POST['email']);
-    $tele = htmlspecialchars($_POST['tele']);
-    $adress = htmlspecialchars($_POST['adress']);
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
+    $tele = $_POST['tele'];
+    $adresse = $_POST['adress'];
     $password = $_POST['password'];
-
-    $sqlCheckEmail = "SELECT * FROM client WHERE email = ?";
-    $stmtCheck = mysqli_prepare($db, $sqlCheckEmail);
-    mysqli_stmt_bind_param($stmtCheck, "s", $email);
-    mysqli_stmt_execute($stmtCheck);
-    $resultCheck = mysqli_stmt_get_result($stmtCheck);
-
-    if (mysqli_num_rows($resultCheck) > 0) {
-        $registerError = "L'email est déjà utilisé.";
-    } else {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        $sql = "INSERT INTO client (nom, prenom, email, tele, adress, password, roleId) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $hashedPassword = password_hash($password,PASSWORD_BCRYPT);
+    $sql = "INSERT INTO client (nom, prenom, email, tele, adress, password, roleId) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($db,$sql);
+    mysqli_stmt_bind_param($stmt, "ssssssi", $nom,$prenom,$email,$tele,$adresse,$hashedPassword,2);
+    if(mysqli_stmt_execute($stmt)){
+        $user = mysqli_insert_id($db);
+        $_SESSION['user_id'] = $user;
+        $_SESSION['role'] = 'user';
+        header("Location: index.php");
+        exit();
+    }
+    else{
+        echo "An error";
     }
 
 }
@@ -150,7 +150,7 @@ if (isset($_POST['register'])) {
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Adresse</label>
-                        <input type="text" name="adresse" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input type="text" name="adress" required class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Mot de passe</label>
