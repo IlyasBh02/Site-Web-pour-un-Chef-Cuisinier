@@ -1,9 +1,7 @@
 <?php
-// Connexion à la base de données
 include '../connection.php';
 session_start();
 
-// Vérification de la session du chef
 if (!isset($_SESSION['user_id']) && $_SESSION['role'] == 2) {
     header('Location: login.php');
     exit();
@@ -90,7 +88,6 @@ $reservations_result = $reservations_query->get_result();
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
     <nav class="bg-gray-900 text-white shadow-lg">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
@@ -119,9 +116,7 @@ $reservations_result = $reservations_query->get_result();
     </nav>
 
 
-    <!-- Main Content -->
     <div class="container mx-auto px-6 py-8">
-        <!-- Messages de notification -->
         <?php if (!empty($success_messages)): ?>
             <div class="mb-4 p-4 bg-green-100 border-l-4 border-green-500 text-green-700">
                 <?php foreach($success_messages as $message): ?>
@@ -138,7 +133,7 @@ $reservations_result = $reservations_query->get_result();
             </div>
         <?php endif; ?>
 
-        <!-- Section Ajout de Plats -->
+
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 class="text-2xl font-bold mb-6 flex items-center">
                 <i class="fas fa-plus-circle mr-3 text-green-600"></i>
@@ -147,7 +142,7 @@ $reservations_result = $reservations_query->get_result();
             
             <form id="addDishesForm" action="" method="POST" enctype="multipart/form-data">
                 <div id="dishesContainer">
-                    <!-- Les champs de plat seront ajoutés ici dynamiquement -->
+                    <!-- Les champs de plat seront ajoutés ici  -->
                 </div>
                 <div class="flex space-x-4 mt-6">
                     <button type="button" id="addDishBtn" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex items-center">
@@ -160,7 +155,7 @@ $reservations_result = $reservations_query->get_result();
             </form>
         </div>
 
-        <!-- Section Réservations -->
+
         <div class="bg-white rounded-lg shadow-md p-6">
             <h2 class="text-2xl font-bold mb-6 flex items-center">
                 <i class="fas fa-calendar-check mr-3 text-blue-600"></i>
