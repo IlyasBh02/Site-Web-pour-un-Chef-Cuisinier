@@ -13,6 +13,19 @@ if ($result->num_rows > 0) {
     $menus = [];
 }
 ?>
+ <?php 
+         session_start();
+         if (isset($_POST['reservation'])) {
+             if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])){
+                header("Location: ../client/reservation.php);
+            }  
+             else{
+                 header("Location: ../public/login.php");
+             }
+         }
+         
+
+                        ?>
 
 <section class="p-8 bg-gray-50">
     <h1 class="text-4xl text-center font-bold mb-10 text-gray-800">Nos Menus Complets</h1>
@@ -49,7 +62,15 @@ if ($result->num_rows > 0) {
                                 class="w-full h-32 object-cover rounded-md mt-4"
                             >
                         <?php endif; ?>
+                       
+                        <form method="POST">
+            
+        <button type="submit" name="reservation" class="w-[50%] py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+            Reservation
+        </button>
+    </form>
                     </div>
+                    
                 <?php 
                     endforeach;
                 endif;
@@ -57,6 +78,7 @@ if ($result->num_rows > 0) {
             </div>
         </div>
     <?php endforeach; ?>
+   
 </section>
 
 <section class="py-16">
@@ -128,11 +150,6 @@ if ($result->num_rows > 0) {
                 </div>
             </div>
         </div>
-    </div>
-    <div class="flex justify-center mt-4">
-        <button type="submit" name="reservation" class="w-[15%] py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
-            Reservation
-        </button>
     </div>
 </section>
 
