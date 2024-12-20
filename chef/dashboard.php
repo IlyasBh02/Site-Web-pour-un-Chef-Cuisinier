@@ -99,9 +99,9 @@ $reservations_result = $reservations_query->get_result();
                     <a href="chef_menu.php" class="px-3 py-2 rounded-md hover:bg-gray-700 transition">
                         <i class="fas fa-utensils mr-2"></i>Menus
                     </a>
-                    <a href="reservations.php" class="px-3 py-2 rounded-md hover:bg-gray-700 transition">
+                    <!-- <a href="reservations.php" class="px-3 py-2 rounded-md hover:bg-gray-700 transition">
                         <i class="fas fa-calendar-alt mr-2"></i>Réservations
-                    </a>
+                    </a> -->
                 </div>
                 <div class="flex items-center space-x-4">
                     <a href="profile.php" class="flex items-center px-3 py-2 rounded-md hover:bg-gray-700 transition">

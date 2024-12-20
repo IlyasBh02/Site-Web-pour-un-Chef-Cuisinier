@@ -13,19 +13,17 @@ if ($result->num_rows > 0) {
     $menus = [];
 }
 ?>
- <?php 
-         session_start();
-         if (isset($_POST['reservation'])) {
-             if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])){
-                header("Location: ../client/reservation.php);
-            }  
-             else{
-                 header("Location: ../public/login.php");
-             }
-         }
-         
-
-                        ?>
+<?php 
+    session_start();
+    if (isset($_POST['reservation'])) {
+        if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])){
+        header("Location: ../client/reservation.php");
+    }  
+        else{
+            header("Location: ../public/login.php");
+        }
+    }
+?>
 
 <section class="p-8 bg-gray-50">
     <h1 class="text-4xl text-center font-bold mb-10 text-gray-800">Nos Menus Complets</h1>
