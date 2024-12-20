@@ -1,6 +1,5 @@
 <!-- Tableau de bord client -->
 
-<?php include '../includes/header.php'; ?>
 <!-- <h1>Tableau de bord client</h1>
 <p>Bienvenue, [Nom du client]</p>
 <a href="reservation.php">Faire une réservation</a> -->
@@ -27,7 +26,7 @@
                     <a href="menu.php" class="px-3 py-2 rounded-md hover:bg-gray-700 transition">
                         <i class="fas fa-utensils mr-2"></i>Menus
                     </a>
-                    <a href="reservations.php" class="px-3 py-2 rounded-md hover:bg-gray-700 transition">
+                    <a href="./reservation.php" class="px-3 py-2 rounded-md hover:bg-gray-700 transition">
                         <i class="fas fa-calendar-alt mr-2"></i>Réservations
                     </a>
                 </div>

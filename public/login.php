@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
         if($result){
             $user = mysqli_fetch_assoc($result);
             if($user['roleId'] == 1){
-                if($password === $user['password']){
+                if($password == $user['password']){
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['role'] = 'admin';
                     header("Location: ../chef/dashboard.php");

@@ -2,8 +2,8 @@
 include '../connection.php';
 session_start();
 
-if (!isset($_SESSION['user_id']) && $_SESSION['role'] == 2) {
-    header('Location: login.php');
+if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] == 2) {
+    header('Location: ../public/login.php');
     exit();
 }
 
@@ -107,7 +107,7 @@ $reservations_result = $reservations_query->get_result();
                     <a href="profile.php" class="flex items-center px-3 py-2 rounded-md hover:bg-gray-700 transition">
                         <i class="fas fa-user mr-2"></i>Profil
                     </a>
-                    <button onclick="window.location.href='../public/index.php';" class="px-4 py-2 bg-red-600 rounded-md hover:bg-red-700 transition">
+                    <button onclick="window.location.href='../public/logout.php';" class="px-4 py-2 bg-red-600 rounded-md hover:bg-red-700 transition">
                         <i class="fas fa-sign-out-alt mr-2"></i>Déconnexion
                     </button>
                 </div>

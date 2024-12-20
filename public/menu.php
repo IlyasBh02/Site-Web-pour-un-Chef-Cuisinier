@@ -129,6 +129,11 @@ if ($result->num_rows > 0) {
             </div>
         </div>
     </div>
+    <div class="flex justify-center mt-4">
+        <button type="submit" name="reservation" class="w-[15%] py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+            Reservation
+        </button>
+    </div>
 </section>
 
 
