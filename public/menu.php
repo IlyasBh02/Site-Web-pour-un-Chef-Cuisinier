@@ -36,7 +36,6 @@ if ($result->num_rows > 0) {
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <?php
-                // Requête préparée pour récupérer tous les plats du menu
                 $stmt = $db->prepare("SELECT * FROM plat WHERE menuId = ?");
                 $stmt->bind_param("i", $menu['id']);
                 $stmt->execute();
@@ -63,10 +62,10 @@ if ($result->num_rows > 0) {
                        
                         <form method="POST">
             
-        <button type="submit" name="reservation" class="w-[50%] py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
-            Reservation
-        </button>
-    </form>
+                            <button type="submit" name="reservation" class="w-[50%] py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                                Reservation
+                            </button>
+                        </form>
                     </div>
                     
                 <?php 
