@@ -3,49 +3,43 @@ include '../includes/header.php';
 require('../connection.php');
 session_start();
 
-// Traitement de la connexion
 if (isset($_POST['login'])) {
-    $email = htmlspecialchars($_POST['email']);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
 
-    $sql = "select * from client where email = ?";
-
-    $stmt = mysqli_prepare($db,$sql);
-    mysqli_stmt_bind_param($stmt,"s",$email);
-    if(mysqli_stmt_execute($stmt)){
-        $result = mysqli_stmt_get_result($stmt);
-        if($result){
-            $user = mysqli_fetch_assoc($result);
-            if($user['roleId'] == 1){
-                if($password == $user['password']){
-                    $_SESSION['user_id'] = $user['id'];
-                    $_SESSION['role'] = 'admin';
-                    header("Location: ../chef/dashboard.php");
+    if (!$email || !$password) {
+        $error = "Please provide both email and password";
+    } else {
+        $sql = "SELECT * FROM client WHERE email = ?";
+        
+        if ($stmt = mysqli_prepare($db, $sql)) {
+            mysqli_stmt_bind_param($stmt, "s", $email);
+            
+            if (mysqli_stmt_execute($stmt)) {
+                $result = mysqli_stmt_get_result($stmt);
+                
+                if ($user = mysqli_fetch_assoc($result)) {
+                    if (password_verify($password, $user['password'])) {
+                        $_SESSION['user_id'] = $user['id'];
+                        $_SESSION['role'] = ($user['roleId'] == 1) ? 'admin' : 'client';
+                        
+                        header("Location: " . ($user['roleId'] == 1 ? "../chef/dashboard.php" : "index.php"));
+                        exit();
+                    } else {
+                        $error = "Invalid email or password";
+                    }
+                } else {
+                    $error = "No account found with this email";
                 }
-                else{
-                    echo "invalid error";
-                }
+            } else {
+                $error = "An error occurred. Please try again later.";
             }
-            else{
-                if($password === $user['password']){
-                // if(password_verify($password,$user['password'])){
-                    $_SESSION['user_id'] = $user['id'];
-                    $_SESSION['role'] = 'client';
-                    header("Location: index.php");
-                }
-                else{
-                    echo "invalide";
-                }
-            }
+            
+            mysqli_stmt_close($stmt);
         }
-        else{
-            echo "echo no accout found";
-        }
-    }
-    else{
-        echo "an error occured in the login";
     }
 }
+
 if (isset($_POST['register'])) {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -53,22 +47,33 @@ if (isset($_POST['register'])) {
     $tele = $_POST['tele'];
     $adresse = $_POST['adress'];
     $password = $_POST['password'];
-    $hashedPassword = password_hash($password,PASSWORD_BCRYPT);
-    $sql = "INSERT INTO client (nom, prenom, email, tele, adress, password, roleId) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $stmt = mysqli_prepare($db,$sql);
-    mysqli_stmt_bind_param($stmt, "ssssssi", $nom,$prenom,$email,$tele,$adresse,$hashedPassword,2);
-    if(mysqli_stmt_execute($stmt)){
-        $user = mysqli_insert_id($db);
-        $_SESSION['user_id'] = $user;
-        $_SESSION['role'] = 'user';
-        header("Location: index.php");
-        exit();
-    }
-    else{
-        echo "An error";
-    }
 
+    if (!$nom || !$prenom || !$email || !$tele || !$adresse || !$password) {
+        $error = "All fields are required";
+    } else {
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        
+        $sql = "INSERT INTO client (nom, prenom, email, tele, adress, password, roleId) VALUES (?, ?, ?, ?, ?, ?, 2)";
+        
+        if ($stmt = mysqli_prepare($db, $sql)) {
+            mysqli_stmt_bind_param($stmt, "ssssss", $nom, $prenom, $email, $tele, $adresse, $hashedPassword);
+            
+            if (mysqli_stmt_execute($stmt)) {
+                $user_id = mysqli_insert_id($db);
+                $_SESSION['user_id'] = $user_id;
+                $_SESSION['role'] = 'client';
+                header("Location: index.php");
+                exit();
+            } else {
+                $error = "Registration failed. Please try again.";
+            }
+            
+            mysqli_stmt_close($stmt);
+        }
+    }
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +86,6 @@ if (isset($_POST['register'])) {
 <body class="bg-gray-50">
     <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full space-y-8">
-            <!-- Onglets -->
             <div class="flex justify-center space-x-4 mb-8">
                 <button onclick="showForm('login')" class="tab-btn px-6 py-2 rounded-lg font-medium focus:outline-none" id="loginTab">
                     Connexion
@@ -91,7 +95,7 @@ if (isset($_POST['register'])) {
                 </button>
             </div>
 
-            <!-- Formulaire de connexion -->
+            <!-- connexion -->
             <div id="loginForm" class="bg-white p-8 rounded-xl shadow-md space-y-4">
                 <h2 class="text-center text-2xl font-bold text-gray-900 mb-8">Connexion</h2>
                 <?php if (isset($loginError)): ?>
@@ -121,7 +125,7 @@ if (isset($_POST['register'])) {
                 </form>
             </div>
 
-            <!-- Formulaire d'inscription -->
+            <!-- inscription -->
             <div id="registerForm" class="bg-white p-8 rounded-xl shadow-md space-y-4" style="display: none;">
                 <h2 class="text-center text-2xl font-bold text-gray-900 mb-8">Inscription</h2>
                 <?php if (isset($registerError)): ?>

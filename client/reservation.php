@@ -36,7 +36,7 @@ $result = mysqli_query($db,$sql);
                     <a href="profile.php" class="flex items-center px-3 py-2 rounded-md hover:bg-gray-700 transition">
                         <i class="fas fa-user mr-2"></i>Profil
                     </a>
-                    <button onclick="window.location.href='../public/index.php';" class="px-4 py-2 bg-red-600 rounded-md hover:bg-red-700 transition">
+                    <button onclick="window.location.href='../public/logout.php';" class="px-4 py-2 bg-red-600 rounded-md hover:bg-red-700 transition">
                         <i class="fas fa-sign-out-alt mr-2"></i>Déconnexion
                     </button>
                 </div>
@@ -46,7 +46,7 @@ $result = mysqli_query($db,$sql);
     <div class="w-screen">
             <div class="flex justify-center items-center opacity-90 my-4 p-2">
                     <!--================ start form =================-->
-            <form action="ReservationPros.php" method="POST" class="bg-gray-500 w-[50%] p-6 rounded-3xl shadow-lg space-y-2">
+            <form action="./ReservationPros.php" method="POST" class="bg-gray-500 w-[50%] p-6 rounded-3xl shadow-lg space-y-2">
                 <div class="transition-all duration-300 ease-in-out hover:scale-105">
                     <label for="menu">menu :</label>
                     <select name="menu" id="">
@@ -65,10 +65,10 @@ $result = mysqli_query($db,$sql);
                 </div>
                 <div class="transition-all duration-300 ease-in-out hover:scale-105">
                     <label for="nombrePersone">nombrePersone :</label>
-                    <input type="number" name="nombrePersone" id="nombrePersone" placeholder="Telephone" class="px-2 py-1 w-full border-solid rounded-lg">
+                    <input type="number" name="nombrePersone" id="nombrePersone" placeholder="nombre" class="px-2 py-1 w-full border-solid rounded-lg">
                 </div>
                 <div class="flex justify-center">
-                <input value="Se connecter" name="submit" type="submit" class="bg-green-500 text-white p-2 rounded-2xl text-lg font-semibold w-[60%] hover:bg-green-600 transform transition-all duration-300 hover:scale-105">
+                <input value="Reserve" name="submit" type="submit" class="bg-green-500 text-white px-4 py-2 rounded-2xl text-lg font-semibold w-[60%] hover:bg-green-600 transform transition-all duration-300 hover:scale-105">
                 </div>
             </form>
         </div>
