@@ -49,10 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_dishes'])) {
     }
 }
 
-// Traitement de l'annulation des réservations avec confirmation
 if (isset($_POST['cancel_reservation'])) {
     $reservation_id = intval($_POST['reservation_id']);
-    $query = $db->prepare("UPDATE reservation SET statut = 'annulée' WHERE id = ?");
+    $query = $db->prepare("UPDATE reservation SET status = 'refusée' WHERE id = ?");
     $query->bind_param("i", $reservation_id);
     
     if ($query->execute()) {
@@ -62,18 +61,26 @@ if (isset($_POST['cancel_reservation'])) {
     }
 }
 
-// Récupérer les réservations du jour
+if(isset($_POST['accept_reservation'])){
+    $reservation_id = intval($_POST['reservation_id']);
+    $query = $db->prepare("UPDATE reservation SET status = 'acceptée' WHERE id = ?");
+    $query->bind_param("i", $reservation_id);
+    if ($query->execute()) {
+        $success_messages[] = "Réservation accepte avec succès!";
+    } else {
+        $error_messages[] = "Erreur lors de l'aacceptation de la réservation.";
+    }
+}
+
 $today = date('Y-m-d');
 $reservations_query = $db->prepare("
     SELECT r.id, c.nom, c.prenom, r.nombrePersone, r.datereservation, m.nom as menu_nom 
     FROM reservation r
     JOIN client c ON r.clientId = c.id
     JOIN menu m ON r.menuId = m.id
-    WHERE r.status = 'confirmée' 
-    AND DATE(r.datereservation) = ?
+    WHERE r.status = 'en attente' 
     ORDER BY r.datereservation ASC
 ");
-$reservations_query->bind_param("s", $today);
 $reservations_query->execute();
 $reservations_result = $reservations_query->get_result();
 ?>
@@ -162,7 +169,8 @@ $reservations_result = $reservations_query->get_result();
                 Réservations du jour
             </h2>
             
-            <?php if (mysqli_num_rows($reservations_result) > 0): ?>
+            <?php 
+            if (mysqli_num_rows($reservations_result) > 0): ?>
                 <div class="overflow-x-auto">
                     <table class="w-full table-auto">
                         <thead class="bg-gray-50">
@@ -174,14 +182,15 @@ $reservations_result = $reservations_query->get_result();
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                             </tr>
                         </thead>
+                        <?php echo "test";?>
                         <tbody class="bg-white divide-y divide-gray-200">
                             <?php while ($row = mysqli_fetch_assoc($reservations_result)): ?>
                                 <tr class="hover:bg-gray-50">
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <?php echo htmlspecialchars($row['prenom'] . ' ' . $row['nom']); ?>
+                                        <?php echo htmlspecialchars($row['nom']); ?>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <?php echo htmlspecialchars($row['menu_nom']); ?>
+                                        <?php echo htmlspecialchars($row['prenom']); ?>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <?php echo htmlspecialchars($row['nombrePersone']); ?>
@@ -196,6 +205,12 @@ $reservations_result = $reservations_query->get_result();
                                                 <i class="fas fa-times-circle mr-1"></i>Annuler
                                             </button>
                                         </form>
+                                        <form method="POST" class="inline" onsubmit="return confirm('Êtes-vous sûr de vouloir accepte cette réservation ?');">
+                                            <input type="hidden" name="reservation_id" value="<?php echo $row['id']; ?>">
+                                            <button type="submit" name="accept_reservation" class="text-green-600 hover:text-red-900">
+                                                <i class="fas fa-times-circle mr-1"></i>confirme
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php endwhile; ?>
@@ -203,10 +218,10 @@ $reservations_result = $reservations_query->get_result();
                     </table>
                 </div>
             <?php else: ?>
-                <div class="text-center py-4 text-gray-500">
+                <!-- <div class="text-center py-4 text-gray-500">
                     <i class="fas fa-calendar-times text-4xl mb-3"></i>
                     <p>Aucune réservation pour aujourd'hui</p>
-                </div>
+                </div> -->
             <?php endif; ?>
         </div>
     </div>

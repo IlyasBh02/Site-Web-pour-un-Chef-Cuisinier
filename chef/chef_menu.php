@@ -1,37 +1,34 @@
 <?php
-// Démarrer la session et inclure les fichiers nécessaires
 session_start();
 
-// Vérifier l'accès au rôle de chef
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../public/login.php");
+    header("Location: ../chef/dashboard.php");
     exit();
 }
-
-// Inclure la connexion à la base de données
 include_once '../connection.php';
 
-// Logique pour ajouter ou mettre à jour un menu
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $menuName = $_POST['menu_name'];
-    $plats = $_POST['plats']; // Tableau de plats
+    $plats = $_POST['plats']; 
 
-    // Ajouter le menu
-    $sqlMenu = "INSERT INTO menu (nom, chef_id) VALUES (?, ?)";
-    $stmt = $conn->prepare($sqlMenu);
-    $stmt->execute([$menuName, $_SESSION['chef_id']]);
-    $menuId = $conn->lastInsertId();
+    $sqlMenu = "INSERT INTO menu (nom) VALUES (?)";
+    $stmt = $db->prepare($sqlMenu);
+    $stmt->bind_param("s", $menuName); // Utilisation de bind_param pour sécuriser la requête
+    $stmt->execute();
 
-    // Ajouter les plats liés
-    $sqlPlat = "INSERT INTO plat (nom, description, prix, menu_id) VALUES (?, ?, ?, ?)";
-    $stmtPlat = $conn->prepare($sqlPlat);
+    $menuId = $db->insert_id;
+
+    $sqlPlat = "INSERT INTO plat (nom, ingridiant, menuid, image) VALUES (?, ?, ?, ?)";
+    $stmtPlat = $db->prepare($sqlPlat);
     foreach ($plats as $plat) {
-        $stmtPlat->execute([$plat['nom'], $plat['description'], $plat['prix'], $menuId]);
+        $stmtPlat->bind_param("ssdi", $plat['nom'], $plat['ingridiant'], $menuId, $plat['image']);
+        $stmtPlat->execute();
     }
 
     echo "<div class='text-green-500'>Menu ajouté avec succès !</div>";
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
